@@ -1,0 +1,19 @@
+# Agent (private)
+.agent/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Temp
+*.tmp
+*.bak
+*.log
