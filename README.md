@@ -25,6 +25,16 @@ I build hardware — drones, motor drivers, and tracking devices — and write t
 
 ---
 
+#### GitHub
+
+<p>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Meta-Develop&layout=compact&langs_count=6&theme=transparent&hide_border=true&title_color=e6edf3&text_color=8b949e" alt="Languages" height="160"/>
+  &nbsp;&nbsp;
+  <img src="https://github-readme-stats.vercel.app/api?username=Meta-Develop&show_icons=true&theme=transparent&hide_border=true&include_all_commits=true&count_private=true&title_color=e6edf3&text_color=8b949e&icon_color=8b949e&hide_title=true&hide_rank=true" alt="Stats" height="160"/>
+</p>
+
+---
+
 <div align="center">
   <a href="https://x.com/Meta_for_Life">X</a> · <a href="https://www.linkedin.com/in/rikuto-uyama-181342264/">LinkedIn</a>
 </div>
