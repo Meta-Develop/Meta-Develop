@@ -1,6 +1,6 @@
 ### Hi, I'm Meta-Develop 👋
 
-B2 Electrical & Electronic Engineering @ [Tokyo Metropolitan College of Industrial Technology](https://www.metro-cit.ac.jp/)  
+B3 Electrical & Electronic Engineering @ [Tokyo Metropolitan College of Industrial Technology](https://www.metro-cit.ac.jp/)  
 Focused on robotics, embedded systems, and PCB design.
 
 I build hardware — drones, motor drivers, and tracking devices — and write the firmware to make them work. Most of my work lives on a bench, not in a repo. GitHub is where the software side ends up.
