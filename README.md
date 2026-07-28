@@ -42,12 +42,12 @@ I build hardware — drones, motor drivers, and tracking devices — and write t
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/top-langs-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/top-langs-light.svg" />
-    <img src="./profile/top-langs-light.svg" alt="Most used languages on GitHub" width="291" height="160" />
+    <img src="./profile/top-langs-light.svg" alt="Most used languages on GitHub" height="160" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/stats-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/stats-light.svg" />
-    <img src="./profile/stats-light.svg" alt="GitHub profile statistics" width="341" height="160" />
+    <img src="./profile/stats-light.svg" alt="GitHub profile statistics" height="160" />
   </picture>
 </p>
 
