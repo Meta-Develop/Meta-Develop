@@ -1,4 +1,4 @@
-### Hi, I'm Meta-Develop 👋
+# Hi, I'm Meta-Develop 👋
 
 B3 Electrical & Electronic Engineering @ [Tokyo Metropolitan College of Industrial Technology](https://www.metro-cit.ac.jp/)  
 Focused on robotics, embedded systems, and PCB design.
@@ -7,31 +7,47 @@ I build hardware — drones, motor drivers, and tracking devices — and write t
 
 ---
 
-#### What I use
+## What I use
 
-| | |
-|---|---|
-| **Languages** | C, C++, Python — Rust (learning) |
-| **MCUs** | ESP32, STM32, PIC, Arduino |
-| **Robotics** | ROS 2, micro-ROS, Gazebo |
-| **CAD / EDA** | Fusion 360, KiCad, EAGLE |
-| **Other** | Git, Linux, Docker, LaTeX |
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Languages</strong></td>
+      <td>C, C++, Python — Rust (learning)</td>
+    </tr>
+    <tr>
+      <td><strong>MCUs</strong></td>
+      <td>ESP32, STM32, PIC, Arduino</td>
+    </tr>
+    <tr>
+      <td><strong>Robotics</strong></td>
+      <td>ROS 2, micro-ROS, Gazebo</td>
+    </tr>
+    <tr>
+      <td><strong>CAD / EDA</strong></td>
+      <td>Fusion 360, KiCad, EAGLE</td>
+    </tr>
+    <tr>
+      <td><strong>Other</strong></td>
+      <td>Git, Linux, Docker, LaTeX</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
-#### GitHub
+## GitHub
 
 <p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/top-langs-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/top-langs-light.svg" />
-    <img src="./profile/top-langs-dark.svg" alt="Languages" height="160" />
+    <img src="./profile/top-langs-light.svg" alt="Most used languages on GitHub" width="291" height="160" />
   </picture>
-  &nbsp;&nbsp;
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/stats-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/stats-light.svg" />
-    <img src="./profile/stats-dark.svg" alt="Stats" height="160" />
+    <img src="./profile/stats-light.svg" alt="GitHub profile statistics" width="341" height="160" />
   </picture>
 </p>
 
