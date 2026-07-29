@@ -1,7 +1,8 @@
 name: Profile Validation
 
 "on":
-  push: {}
+  push:
+    branches: [main]
   pull_request: {}
   schedule:
     - cron: "17 3 * * *"
