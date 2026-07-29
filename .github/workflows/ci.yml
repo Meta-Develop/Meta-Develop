@@ -1,0 +1,113 @@
+name: Profile Validation
+
+"on":
+  push:
+    branches: [main]
+  pull_request: {}
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: >-
+    profile-validation-${{ github.workflow }}-${{
+    github.event.pull_request.head.repo.full_name || github.repository }}-${{
+    github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  readme:
+    name: Validate README Markdown and links
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source without persisted credentials
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Set up the Markdown validation runtime
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22.22.3"
+          check-latest: false
+
+      - name: Check Markdown structure and links
+        env:
+          npm_config_audit: "false"
+          npm_config_fund: "false"
+          npm_config_ignore_scripts: "true"
+        run: |
+          set -euo pipefail
+          node --version
+          npx --yes markdownlint-cli@0.48.0 \
+            README.md --disable MD013 MD033 --
+          npx --yes markdown-link-check@3.14.2 \
+            --retry --alive 200,206,999 README.md
+
+  profile-card:
+    name: Validate ${{ matrix.asset }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        asset:
+          - profile/stats-dark.svg
+          - profile/stats-light.svg
+          - profile/top-langs-dark.svg
+          - profile/top-langs-light.svg
+    steps:
+      - name: Check out source without persisted credentials
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Check the active README card
+        env:
+          ASSET_PATH: ${{ matrix.asset }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          active_assets = {
+              "profile/stats-dark.svg",
+              "profile/stats-light.svg",
+              "profile/top-langs-dark.svg",
+              "profile/top-langs-light.svg",
+          }
+          asset = os.environ["ASSET_PATH"]
+          if asset not in active_assets:
+              raise SystemExit(f"Unexpected profile card: {asset}")
+
+          readme = Path("README.md").read_text(encoding="utf-8")
+          reference = f"./{asset}"
+          if reference not in readme:
+              raise SystemExit(f"README.md does not reference {reference}")
+
+          path = Path(asset)
+          data = path.read_bytes()
+          root = ET.fromstring(data)
+          if not root.tag.endswith("svg"):
+              raise SystemExit(f"{asset} does not have an SVG root element")
+          if len(data) < 1000:
+              raise SystemExit(
+                  f"{asset} is implausibly small ({len(data)} bytes)"
+              )
+          if (
+              b"Something went wrong" in data
+              or b'data-testid="message"' in data
+          ):
+              raise SystemExit(f"{asset} contains an error-card signature")
+
+          print(f"Validated {asset} ({len(data)} bytes)")
+          PY
